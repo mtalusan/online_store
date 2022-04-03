@@ -1,0 +1,49 @@
+Inventory (view)
+ - be able to get to product details
+product
+ - stock
+ - details
+ -EXTRA add an interface that will take new products
+
+Shop offerings(view)
+ - contains the products available
+ - links to product page?
+ - EXTRA Add size/color options
+ - EXTRA wishlist
+
+EXTRA wishlist(view)
+
+Product page(view)
+ - product image(s)
+ - product details
+ - quantity
+ - EXTRA create random mad libs review
+ - EXTRA wishlist button
+
+cart (view/form)
+ - remove things
+ - change quantity
+ - order number
+ - send to check out page before submit
+ -  reset to empty once submitted
+
+
+check out (form)
+ - enter shipping address
+ - enter billing address
+ -EXTRA Announce the amount of points earned from loyalty program maybe based on order total
+
+order
+ - (view) order tracking
+	- processing status
+	- shipping status
+	- tracking number
+	- amount paid for each item
+	- total paid
+ - (view) all orders in processing
+ - (view/form) employee view
+	- order details
+	- change processing status
+	- add notes
+	- contact info of client
+ - EXTRA allow employee to add promo codes
