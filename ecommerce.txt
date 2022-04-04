@@ -5,6 +5,7 @@ product
  - stock
  - details
  -EXTRA add an interface that will take new products
+ 
 
 Shop offerings(view)
  - contains the products available
