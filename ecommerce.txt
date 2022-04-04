@@ -1,3 +1,4 @@
+CSCI 466
 Inventory (view)
  - be able to get to product details
 product
