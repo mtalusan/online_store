@@ -1,10 +1,4 @@
--- !WARNING!
--- RUNNING THIS WILL DELETE PREVIOUS INVENTORY 
--- TABLE AND THUS ITS' DATA. ONLY RUN IF DATA IS 
--- REPLACEABLE
-
-DROP TABLE Product;
--- Create and populate store's inventory 
+-- Define store's inventory
 CREATE TABLE Product (
 	Product_ID INT AUTO_INCREMENT,
 	Product_Name CHAR(50),
@@ -17,37 +11,3 @@ CREATE TABLE Product (
 	PRIMARY KEY(PRODUCT_ID)
 );
 
-
-INSERT INTO Product
-	(Product_Name, Stock, Details, Size, Color, Base_Price)
-	Values(
-	'Supreme x CDG T-shirt',
-	'25',
-	'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee',
-	'XS',
-	'White',
-	'129.99'
-	
-);
-
-
-INSERT INTO Product
-	(Product_Name, Stock, Details, Size, Color, Base_Price)
-	Values(
-	'Supreme x CDG T-shirt',
-	25,
-	'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee',
-	'XL',
-	'White',
-	129.99
-	
-);
-
-INSERT INTO Product
-	(Product_Name, Stock, Details, Base_Price)
-	Values(
-	'Biplane',
-	3,
-	'Defy Sir Issac Newton.',
-	4499.99
-);
