@@ -4,6 +4,7 @@
 	</head>
 
 	<body>
+		<p><b><h1>TA'S, IF YOU SEE THIS I'M QUICKLY TESTING THE GROUP PROJECT, PLZ COMEBACK LATER OR CONTACT ME DIRECTLY TO LET ME KNOW YOU NEED TO SEE ASSIGNMENT 9 AND I'LL CHANGE IT BACK</h1></b></p><br />
 	<?php
 		include("credentials.php");
 		include("openMariaDB.txt");
@@ -31,9 +32,10 @@
 				echo "<td>" . $item["Product_Name"] . "</td>";
 				echo "<td>" . $item["Details"] . "</td>";
 				echo "</tr>";
+
 				// Button with link to item page
 				echo "<form> action=\"item_page.php\" method=\"POST\">";
-				echo "<input type=\"submit\" value=\"" . $item["Product_ID"] . "\"/>";
+				echo "<input type=\"submit\" name=\"item\" value=\"" . $item["Product_ID"] . "\"/>";
 				echo "</form>";
 			}
 
