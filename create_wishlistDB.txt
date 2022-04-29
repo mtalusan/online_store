@@ -1,0 +1,9 @@
+-- Define the wishlist database
+CREATE TABLE Wishlist (
+	Product_ID INT,
+	Customer_ID INT,
+	
+	PRIMARY KEY (Customer_ID),
+	FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
