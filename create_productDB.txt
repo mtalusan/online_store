@@ -4,7 +4,7 @@ CREATE TABLE Product (
 	Product_Name CHAR(50),
 	Stock INT,
 	Details CHAR(190),
-	Size CHAR(5) NULL,
+	Size CHAR(12) NULL,
 	Color CHAR(50) NULL,
 	Base_Price DECIMAL(6,2),
 
