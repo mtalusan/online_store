@@ -1,19 +1,25 @@
 <html>
 <?php
 	include("credentials.php");
-	include("openMariaDB.php");
 
-	$item = $_POST["item"];
-
-	// Item's name in the tab's name
-	echo "<head><title>" . $item["Product_Name"] . "</head></title>";
-
-	openMariaDB($username, $password);
+	try
+       	{
+		$dsn = "mysql:host=courses;dbname=z1714949";
+		$pdo = new PDO($dsn, $username, $password);
+		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	}
+	catch(PDOexception $e)
+	{
+		echo "Connection to database failed: " . $e->getMessage();
+	}
 
 	// Get item information
-	$item_info_rs = pdo->prepare("SELECT * FROM Product WHERE Product_ID = :item");
-	$item_info_rs->execute(array(":item" => $item));
-	$item_info = $item_info_rs->fetchAll(PDO::FETCH_ASSOC);
+	$item_info_rs = $pdo->prepare("SELECT * FROM Product WHERE Product_ID = :item;");
+	$item_info_rs->execute(array(":item" => $item_ID));
+	$item_info = $item_info_rs->fetch(PDO::FETCH_ASSOC);
+
+	// Item's name in the tab's name
+	echo "<head><title>" . $item_info["Product_Name"] . "</title></head>";
 
 	// Print item details
 	echo "<table border=2 cellspacing=2>";
@@ -30,14 +36,14 @@
 	if($item_info["Size"] != NULL)
 	{
 		// Run another query if there is size
-		$item_sizes_rs = pdo->prepare("SELECT Size FROM Product WHERE Product_Name = :item_name");
+		$item_sizes_rs = $pdo->prepare("SELECT Size FROM Product WHERE Product_Name = :item_name;");
 		$item_sizes_rs->execute(array(":item_name" => $item_info["Product_Name"]));
-		$item_sizes = $item_size_rs->fetchAll(PDO::FETCH_ASSOC);
+		$item_sizes = $item_sizes_rs->fetchAll(PDO::FETCH_ASSOC);
 
 		echo "<td>";
 		foreach($item_sizes as $item_size)
 		{
-			echo $item_sizes["Size"] . "<br />";
+			echo $item_size["Size"] . "<br />";
 		}
 		echo "</td></tr>";
 	}
@@ -52,14 +58,24 @@
 	if($item_info["Color"] != NULL)
 	{
 		// Run another query if there is color
-		$item_colors_rs = pdo->prepare("SELECT Color FROM Product WHERE Product_Name = :item_name");
+		$item_colors_rs = $pdo->prepare("SELECT Color FROM Product WHERE Product_Name = :item_name;");
 		$item_colors_rs->execute(array(":item_name" => $item_info["Product_Name"]));
 		$item_colors = $item_colors_rs->fetchAll(PDO::FETCH_ASSOC);
 
 		echo "<td>";
+
+		$previous_color = NULL;
 		foreach($item_colors as $item_color)
 		{
-			echo $item_colors["Color"] . "<br />";
+			if($item_color["Color"] != $previous_color)
+			{
+				echo $item_color["Color"] . "<br />";
+				$previous_color = $item_color["Color"];
+			}
+			else
+			{
+				continue;
+			}
 		}
 		echo "</td></tr>";
 	}
