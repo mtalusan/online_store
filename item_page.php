@@ -13,6 +13,8 @@
 		echo "Connection to database failed: " . $e->getMessage();
 	}
 
+	$item_ID = $_POST["item"];
+
 	// Get item information
 	$item_info_rs = $pdo->prepare("SELECT * FROM Product WHERE Product_ID = :item;");
 	$item_info_rs->execute(array(":item" => $item_ID));
@@ -20,6 +22,7 @@
 
 	// Item's name in the tab's name
 	echo "<head><title>" . $item_info["Product_Name"] . "</title></head>";
+	echo "<body>";
 
 	// Print item details
 	echo "<table border=2 cellspacing=2>";
@@ -83,4 +86,8 @@
 	{
 		echo "<td>N/A</td></tr>";
 	}
+
+	echo "<a href=\"index.php\">Home</a>";
+	echo "</body>";
 ?>
+</html>
