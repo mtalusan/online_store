@@ -19,7 +19,15 @@
 		{
 			echo "Connection to database failed: " . $e->getMessage();
 		}
-		// Get inventory
+
+		// Tracking the customer between pages
+		// i.e. they're "logged on"
+		@$C_ID = $_POST["Customer_ID"];
+
+		// Link to logon screen
+		echo "<a href =\"logon.php\">Sign In</a><br />";
+
+		// Get inventory from DB
 		$rs = $pdo->query("SELECT * FROM Product;");
 		$all_inventory = $rs->fetchAll(PDO::FETCH_ASSOC);
 		$previous_item = NULL;
@@ -44,6 +52,7 @@
 				// Button with link to item page
 				echo "<td>";
 				echo "<form action=\"item_page.php\" method=\"POST\">";
+				echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\">";
 				echo "<input type=\"submit\" name=\"item\" value=\"" . $item["Product_ID"] . "\"/>";
 				echo "</form></td></tr>";
 			}
