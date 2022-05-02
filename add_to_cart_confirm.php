@@ -53,18 +53,20 @@
 	{
 		echo "Please enter your Customer_ID/Username<br />";
 		echo "<input type=\"text\" name=\"Customer_ID\" /><br />";
-		echo "<input type=\"hidden\" name=\"Size\" value=\"" . $item_size . "\" />";
-		echo "<input type=\"hidden\" name=\"Color\" value=\"" . $item_color . "\" />";
+		echo "<input type=\"hidden\" name=\"Size\" value=\"" . @$item_size . "\" />";
+		echo "<input type=\"hidden\" name=\"Color\" value=\"" . @$item_color . "\" />";
 		echo "<input type=\"hidden\" name=\"Quantity\" value=\"" . $item_quantity . "\" />";
 		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_ID . "\" />";
+		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_Name . "\" />";
 	}
 	else
 	{
-		echo "<input type=\"hidden\" name=\"Size\" value=\"" . $item_size . "\" />";
-		echo "<input type=\"hidden\" name=\"Color\" value=\"" . $item_color . "\" />";
+		echo "<input type=\"hidden\" name=\"Size\" value=\"" . @$item_size . "\" />";
+		echo "<input type=\"hidden\" name=\"Color\" value=\"" . @$item_color . "\" />";
 		echo "<input type=\"hidden\" name=\"Quantity\" value=\"" . $item_quantity . "\" />";
 		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_ID . "\" />";
-		echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $C_ID . "\" />";
+		echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\" />";
+		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_name . "\" />";
 
 	}
 
