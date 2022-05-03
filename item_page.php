@@ -1,6 +1,9 @@
 <html>
 <?php
-	echo "<a href=\"index.php\">Home</a><br /><br />";
+	echo "<form action=\"index.php\" method=\"POST\">";
+	echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $_POST["Customer_ID"] . "\"/>";
+	echo "<input type=\"submit\" value=\"Home\"/>";
+	echo "</form><br /><br />";
 
 	include("credentials.php");
 
@@ -15,7 +18,7 @@
 		echo "Connection to database failed: " . $e->getMessage();
 	}
 
-	$item_ID = $_POST["item"];
+	$item_ID = $_POST["Product_ID"];
 	@$C_ID = $_POST["Customer_ID"];
 
 	// Get item information
