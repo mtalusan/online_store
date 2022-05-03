@@ -24,8 +24,18 @@
 		// i.e. they're "logged on"
 		@$C_ID = $_POST["Customer_ID"];
 
-		// Link to logon screen
-		echo "<a href =\"logon.php\">Sign In</a><br />";
+		// Greet the client/confirm their Customer_ID
+		// Otherwise display link to log on
+		if(@$C_ID == NULL)
+		{
+			// Link to logon screen
+			echo "<a href =\"logon.php\">Sign In</a><br />";
+		}
+		else
+		{
+			// Greeting
+			echo "Hello, " . @$C_ID . " <a href =\"logon.php\">Not you?</a><br />";
+		}
 
 		// Get inventory from DB
 		$rs = $pdo->query("SELECT * FROM Product;");
@@ -52,8 +62,9 @@
 				// Button with link to item page
 				echo "<td>";
 				echo "<form action=\"item_page.php\" method=\"POST\">";
-				echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\">";
-				echo "<input type=\"submit\" name=\"item\" value=\"" . $item["Product_ID"] . "\"/>";
+				echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\"/>";
+				echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item["Product_ID"] . "\"/>";
+				echo "<input type=\"submit\" value=\"Buy\"/>";
 				echo "</form></td></tr>";
 			}
 
