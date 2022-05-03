@@ -1,6 +1,5 @@
 <html><head><title>Add to Cart</head></title>
 <body>
-<a href= "index.php">Home</a><br />
 <?php
 /**
  * Used to query for additional product info, but am now
@@ -19,6 +18,10 @@
 		echo "Connection to database failed: " . $e->getMessage();
 	}
  */
+	echo "<form action=\"index.php\" method=\"POST\">";
+	echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $_POST["Customer_ID"] . "\"/>";
+	echo "<input type=\"submit\" value=\"Home\"/>";
+	echo "</form><br /><br />";
 	
 	@$item_size = $_POST["Size"];
 	@$item_color = $_POST["Color"];
@@ -57,7 +60,7 @@
 		echo "<input type=\"hidden\" name=\"Color\" value=\"" . @$item_color . "\" />";
 		echo "<input type=\"hidden\" name=\"Quantity\" value=\"" . $item_quantity . "\" />";
 		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_ID . "\" />";
-		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_Name . "\" />";
+		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_name . "\" />";
 	}
 	else
 	{
