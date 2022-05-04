@@ -47,7 +47,6 @@
 			echo "\n\n\t\t<a href='Past_Orders.php'>Past Orders</a>\n\n";
 		}
 	}
-
 	catch(PDOexception $e)
 	{
 		echo "Connection to database failed: " . $e->getMessage();
