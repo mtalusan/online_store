@@ -5,6 +5,7 @@
 
 	<body>
 		<p><b><h1>TA'S, IF YOU SEE THIS I'M QUICKLY TESTING THE GROUP PROJECT, PLZ COMEBACK LATER OR CONTACT ME DIRECTLY TO LET ME KNOW YOU NEED TO SEE ASSIGNMENT 9 AND I'LL CHANGE IT BACK</h1></b></p><br />
+	
 	<?php
 		include("credentials.php");
 
@@ -29,12 +30,12 @@
 		if(@$C_ID == NULL)
 		{
 			// Link to logon screen
-			echo "<a href =\"logon.php\">Sign In</a><br />";
+			echo "<p style=\"text-align:right;\"><a href =\"logon.php\">Sign In</a></p>";
 		}
 		else
 		{
 			// Greeting
-			echo "Hello, " . @$C_ID . " <a href =\"logon.php\">Not you?</a><br />";
+			echo "<p style=\"text-align:right;\">Hello,<b> " . @$C_ID . "</b>! <a href =\"logon.php\">Not you?</a></p>";
 		}
 
 		// Get inventory from DB
@@ -76,6 +77,7 @@
 
 	?>
 
-	<a href="admin_logon.php">Employee Login</a>
+	<a href="admin_logon.php">Employee Login</a><br />
+	<a href="show_orders.php">View Previous Orders</a>
 	</body>
 </html>
