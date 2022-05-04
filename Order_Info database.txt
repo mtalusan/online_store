@@ -4,5 +4,5 @@ create table Order_Info(
     -> Processing_status char(15) not null,
     -> Seller_Notes char(100),
     -> Tracking_Number int(10) not null,
-    -> price char(10) not null
+    -> Price char(10) not null
     -> );
