@@ -1,5 +1,3 @@
-(ORDERS TABLE)create table with
-
 create table Order_Info(
     -> Order_ID char(20) not null,
     -> Customer_ID char(10) not null,
