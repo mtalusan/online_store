@@ -76,5 +76,6 @@
 
 	?>
 
+	<a href="admin_logon.php">Employee Login</a>
 	</body>
 </html>
