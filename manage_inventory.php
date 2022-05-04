@@ -76,6 +76,7 @@
 		echo "Stock:<br />";
 		echo "<input type=\"text\" name=\"Stock\"/><br />";
 
+		echo "<input type=\"hidden\" name=\"Admin_ID\" value=\"" . @$admin_pass . "\"/>";
 		echo "<input type=\"submit\" value=\"Add to Inventory\" />";
 		echo "</form><br /><br />";
 
@@ -146,6 +147,7 @@
 			echo "<tr><td><b>Stock</b></td>";
 			echo "<td><input type=\"text\" name=\"Stock\"/></td></tr>";
 
+			echo "<input type=\"hidden\" name=\"Admin_ID\" value=\"" . @$admin_pass . "\"/>";
 			echo "<input type=\"submit\" value=\"Update\"/>";
 			echo "</form><br />";
 		}
