@@ -31,7 +31,6 @@
 
 		echo "\n\n\t\t<a href='Order_Update.php'>Update Order Status</a>\n\n";
 	}
-
 	catch(PDOexception $e)
 	{
 		echo "Connection to database failed: " . $e->getMessage();
