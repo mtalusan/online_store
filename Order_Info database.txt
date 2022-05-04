@@ -1,8 +1,11 @@
 create table Order_Info(
-    -> Order_ID char(20) not null,
-    -> Customer_ID char(10) not null,
-    -> Processing_status char(15) not null,
-    -> Seller_Notes char(100),
-    -> Tracking_Number int(10) not null,
-    -> Price char(10) not null
-    -> );
+    Order_ID char(20) not null,
+    Customer_ID char(10) not null,
+    Processing_status char(15) not null,
+    Seller_Notes char(100),
+    Tracking_Number int(10) not null,
+    Price char(10) not null
+    
+    Primary Key(Order_ID,Customer_ID),
+    Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID), Customer(Customer_ID)
+);
