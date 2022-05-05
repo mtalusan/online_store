@@ -1,9 +1,9 @@
 create table Order_Info(
     Order_ID char(20) not null,
     Customer_ID char(10) not null,
-    Processing_status char(15) not null,
+    Processing_status char(15) default 'Processing',
     Seller_Notes char(100),
-    Tracking_Number int(10) not null,
+    Tracking_Number int(10) auto_increment,
     Price decimal(6,2) not null,
     
     Primary Key(Order_ID,Customer_ID),
