@@ -4,7 +4,7 @@ create table Order_Info(
     Processing_status char(15) not null,
     Seller_Notes char(100),
     Tracking_Number int(10) not null,
-    Price char(10) not null,
+    Price decimal(10,2) not null,
     
     Primary Key(Order_ID,Customer_ID),
     Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID), Customer(Customer_ID)
