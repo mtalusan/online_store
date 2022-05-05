@@ -1,4 +1,8 @@
-<html><head><title>Update</title></head><body><pre>
+<html><head><title>Update</title></head><body>
+
+<a href="index.php">Home</a><br />
+
+<pre>
 <?php
 
 	include('credentials.php');
