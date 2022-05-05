@@ -19,7 +19,7 @@
 	}
 
 	$item_ID = $_POST["Product_ID"];
-	@$C_ID = $_POST["Customer_ID"];
+	@$C_ID = @$_POST["Customer_ID"];
 
 	// Get item information
 	$item_info_rs = $pdo->prepare("SELECT * FROM Product WHERE Product_ID = :item;");
@@ -95,66 +95,50 @@
 		echo "<td>N/A</td></tr>";
 	}
 
-	echo "</table>";
 
-	// Buy or Wishlist this item
-	if(@$C_ID)
+	// Select quantity, size or color options to submit to car
+	// Pass Product_Name, Customer_ID, and Product_ID
+	echo "<form action=\"add_to_cart_confirm.php\" method=\"POST\">";
+
+	// Select size
+	if($item_info["Size"] != NULL)
 	{
-		// Wishlist this
-		echo "<form action=\"wishlist.php\" method=\"POST\">";
-		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
-		echo "<input type=\"submit\" value=\"Wishlist it!\"/>";
-		echo "</form><br />";
-
-
-		// Select quantity, size or color options to submit to cart
-		// Pass Product_Name, Customer_ID, and Product_ID
-		echo "<form action=\"add_to_cart_confirm.php\" method=\"POST\">";
-
-		// Select size
-		if($item_info["Size"] != NULL)
+		echo "<select name=\"Size\">";
+		foreach($item_sizes as $item_size)
 		{
-			echo "<select name=\"Size\">";
-			foreach($item_sizes as $item_size)
-			{
-				echo "<option>" . $item_size["Size"] . "</option>";
-			}
-			echo "</select><br />";
+			echo "<option>" . $item_size["Size"] . "</option>";
 		}
-
-		// Select Color
-		$previous_item = NULL;
-		if($item_info["Color"] != NULL)
-		{
-			echo "<select name=\"Color\">";
-			foreach($item_colors as $item_color)
-			{
-				echo "<option>" . $item_color["Color"] . "</option>";
-				$previous_item = $item_color["Color"];
-			}
-			echo "</select><br />";
-		}
-
-		// Enter quantity
-		echo "<input type=\"text\" name=\"Quantity\" value=\"Enter Quantity Here\"/><br />";
-
-		// Pass Customer_ID if known
-		echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\"/>";
-
-		// Pass Product_ID
-		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
-
-		// Pass Product_Name
-		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_info["Product_Name"] . "\"/>";
-
-		echo "<input type=\"submit\" value=\"Add to Cart\"/>";
-
-		echo "</form>";
+		echo "</select><br />";
 	}
-	else
+
+	// Select Color
+	$previous_item = NULL;
+	if($item_info["Color"] != NULL)
 	{
-		echo "Log in to buy this!";
+		echo "<select name=\"Color\">";
+		foreach($item_colors as $item_color)
+		{
+			echo "<option>" . $item_color["Color"] . "</option>";
+			$previous_item = $item_color["Color"];
+		}
+		echo "</select><br />";
 	}
+
+	// Enter quantity
+	echo "<input type=\"text\" name=\"Quantity\" value=\"Enter Quantity Here\"/><br />";
+
+	// Pass Customer_ID if known
+	echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\"/>";
+
+	// Pass Product_ID
+	echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
+
+	// Pass Product_Name
+	echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_info["Product_Name"] . "\"/>";
+
+	echo "<input type=\"submit\" value=\"Add to Cart\"/>";
+
+	echo "</form>";
 	echo "</body>";
 
 ?>
