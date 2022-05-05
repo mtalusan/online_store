@@ -1,10 +1,10 @@
 <html><head><title>Past Orders</title></head><body><pre>
 <?php
 
-	include('secrets.php');
+	include('credentials.php');
 
 	try{ // if something goes wrong, an exception is thrown
-		$dsn = "mysql:host=courses;dbname=z1960742";
+		$dsn = "mysql:host=courses;dbname=z1714949";
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
