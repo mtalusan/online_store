@@ -1,10 +1,10 @@
 <html><head><title>Orders</title></head><body><pre>
 <?php
 
-	include('secrets.php');
+	include('credentials.php');
 
 	try{ // if something goes wrong, an exception is thrown
-		$dsn = "mysql:host=courses;dbname=z1960742";
+		$dsn = "mysql:host=courses;dbname=z1714949";
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
@@ -46,7 +46,6 @@
 			echo "\n\n\tTotal Price = " . $Tprice;
 
 			echo "\n\n\t\t<a href='Order_Tracking.php'>Track Order</a>\n\n";
-			echo "\n\n\t\t<a href='Past_Orders.php'>Past Orders</a>\n\n";
 		}
 	}
 
