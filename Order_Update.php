@@ -9,7 +9,7 @@
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 		//creating table
-		$rs = $pdo->query("SELECT * FROM Order_Info where Processing_status != 'Shipped'");
+		$rs = $pdo->query("SELECT * FROM Order_Info where Processing_status != 'Delivered' and Processing_status != 'Shipped'");
 		$rows = $rs->fetchALL(PDO::FETCH_ASSOC);
 
 		echo "<table border=1 cellspacing=10>";
