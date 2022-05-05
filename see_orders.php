@@ -8,7 +8,7 @@
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-		$rs = $pdo->query("SELECT * FROM Order_Info where Processing_status != 'Shipped'");
+		$rs = $pdo->query("SELECT * FROM Order_Info where Processing_status != 'Shipped' and Processing_status != 'Delivered'");
 		$rows = $rs->fetchALL(PDO::FETCH_ASSOC);
 
 		echo "<table border=1 cellspacing=10>";
