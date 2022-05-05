@@ -7,8 +7,22 @@
 		$dsn = "mysql:host=courses;dbname=z1714949";
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-		@$Customer_ID = @$_POST['Customer_ID'];
+		
+		$rs = $pdo->query(select distinct Order_ID, Stock, Quantity from Product, Ordered_item);
+		$rows = $rs->fetchALL(PDO::FETCH_ASSOC);
+		foreach($rows as $row)
+		{	
+			if($row['Quantity'] > $row['stock'])
+			{	
+				$dr = $pdo->prepare("delete from Ordered_Item, Order_Info where Order_ID = ?");
+				$dr->execute(array($row['Order_ID']));
+				echo "\n\nThe order(s) " . $row['Order_ID'] " was removed from the Order\n\n";
+			}
+			else
+			{	
+			$row['stock'] - $row['Quantity'];
+			}
+		}	
 
 		// Button to return to the home page
 		echo "<form action=\"index.php\" method=\"POST\">";
@@ -16,7 +30,8 @@
 		echo "<input type=\"submit\" value=\"Home\"/>";
 		echo "</form><br /><br />";
 
-
+		@$Customer_ID = @$_POST['Customer_ID'];
+		
 		if(!@$Customer_ID)
 		{
 			echo '<form action="show_orders.php" method="POST">';
