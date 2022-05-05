@@ -1,10 +1,10 @@
 <html><head><title>Order Tracking</title></head><body><pre>
 <?php
 
-	include('secrets.php');
+	include('credentials.php');
 
 	try{ // if something goes wrong, an exception is thrown
-		$dsn = "mysql:host=courses;dbname=z1960742";
+		$dsn = "mysql:host=courses;dbname=z1714949";
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 	}
@@ -21,7 +21,7 @@
 	echo "<input type='submit' name='submit/'>";
 	echo '</form>';
 
-	$Tracking_Number = $_POST['quicknote'];
+	@$Tracking_Number = @$_POST['quicknote'];
 
 	$rs = $pdo->prepare("SELECT distinct Order_ID, Tracking_Number,Processing_status  FROM Order_Info where Tracking_Number = ?");
 
