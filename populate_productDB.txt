@@ -1,4 +1,4 @@
-INSERT INTO Product
+/*  INSERT INTO Product
 	(Product_Name, Stock, Details, Size, Color, Base_Price)
 	Values(
 	'Supreme x CDG T-shirt',
@@ -31,3 +31,59 @@ INSERT INTO Product
 	'Defy Sir Issac Newton.',
 	4499.99
 );
+*/
+INSERT INTO Product (Product_Name, Stock, Details, Size, Color, Base_Price) Values 
+
+('Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XS', 'White', '129.99'),
+
+('Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'S', 'white', '129.99'),
+
+('Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'M', 'White', '129.99'),
+
+(''Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'L', 'White', '129.99'),
+
+(''Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XL', 'White', '129.99'),
+
+('Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XXL', 'White', '129.99'),
+
+(''Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'L', 'Black', '129.99'),
+
+(''Supreme x CDG T-shirt', '25', 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XL', 'Black', '129.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'XS', 'Black', '4499.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'S', 'Black', '4499.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'M', 'Black', '4499.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'L', 'Black', '4499.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'XL', 'Black', '4499.99'),
+
+('Biplane', 3, 'Defy Sir Issac Newton.', 'XXL', 'Black', '4499.99'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'XS', 'White', '450.66'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'S', 'White', '450.66'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'M', 'White', '450.66'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'L', 'White', '450.66'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'XL', 'White', '450.66'),
+
+('Baseball Shirt', '1000', 'Fashionable and Simple', 'XXL', 'White', '450.66');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
