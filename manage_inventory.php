@@ -80,7 +80,7 @@
 		echo "<input type=\"submit\" value=\"Add to Inventory\" />";
 		echo "</form><br /><br />";
 
-		// Print info about product and a field to change item attributes
+		// Print info about product and a separate table to change item attributes
 		foreach($inventory as $item_info)
 		{
 			echo "<table border=2 cellspacing=2>";
@@ -124,28 +124,28 @@
 			// Print empty data cells that will allow for employee to change 
 			// attributes about the product
 			echo "<form action=\"edit_item.php\" method=\"POST\">";
-			echo "<table border=2 cellspacing=2>";
+			echo "<table border=1 cellspacing=1>";
 
 			echo "<tr><td><b>Product ID</b></td>";
-			echo "<td><input type=\"text\" name=\"Product_ID\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Product_ID\" value=\"". $item_info["Product_ID"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Product Name</b></td>";
-			echo "<td><input type=\"text\" name=\"Product_Name\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Product_Name\" value=\"" .$item_info["Product_Name"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Details</b></td>";
-			echo "<td><input type=\"text\" name=\"Details\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Details\" value=\"" . $item_info["Details"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Color</b></td>";
-			echo "<td><input type=\"text\" name=\"Color\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Color\" value=\"" . $item_info["Color"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Size</b></td>";
-			echo "<td><input type=\"text\" name=\"Size\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Size\" value=\"" . $item_info["Size"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Price</b></td>";
-			echo "<td><input type=\"text\" name=\"Base_Price\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Base_Price\" value=\"" . $item_info["Base_Price"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Stock</b></td>";
-			echo "<td><input type=\"text\" name=\"Stock\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Stock\" value=\"" . $item_info["Stock"] . "\"/></td></tr>";
 
 			echo "<input type=\"hidden\" name=\"Admin_ID\" value=\"" . @$admin_pass . "\"/>";
 			echo "<input type=\"submit\" value=\"Update\"/>";
