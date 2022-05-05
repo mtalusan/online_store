@@ -74,9 +74,9 @@
 		echo "</table>";
 
 
-		echo "<a href="admin_logon.php">Employee Login</a><br />";
-		echo "<a href="show_orders.php">View Orders</a>";
-		echo "<a href="Past_Orders.php">View Previous Orders</a>";
+		echo "<a href="admin_logon.php">Employee Login</a><br/>";
+		echo "<a href="show_orders.php">View Orders</a><br/>";
+		echo "<a href="Past_Orders.php">View Previous Orders</a><br/>";
 		
 		
 	?>
