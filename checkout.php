@@ -7,9 +7,9 @@
 
 $customer_id= $_POST["Customer_ID"];
 
-include("credentials.php");
+include("secrets.php");
 
-$dsn = "mysql:host=courses;dbname=z1714949";
+$dsn = "mysql:host=courses;dbname=z1960742";
 $pdo = new PDO($dsn, $username, $password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
@@ -29,11 +29,11 @@ if(!empty($_POST['checkout'])){
            // echo "<pre>";print_r($_POST);die;
             $sql = "INSERT INTO Customer(Customer_ID, Phone_Number, Shipping_Address, Customer_Name, Card_Number) VALUES (?,?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([$customer_id, $_POST['Phone_Number'], $_POST['Shipping_Address'], $_POST['Customer_Name'], $_POST['Card_Number']);
+            $stmt->execute(array($customer_id, $_POST['Phone_Number'], $_POST['address'], $_POST['Customer_Name'], $_POST['Card_Number']));
 
             $sql = "INSERT INTO Ordered_Item(Customer_ID, Product_ID, Quantity, Price) VALUES (?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([$customer_id, $_POST['Product_ID'], $_POST['Quantity'], $_POST['Price']);
+            $stmt->execute($customer_id, $_POST['Product_ID'], $_POST['Quantity'], $_POST['Price']);
 
 
             $sql = "DELETE FROM Shopping_Cart WHERE Customer_ID = :customer_id ";
@@ -54,9 +54,10 @@ if(!empty($_POST['checkout'])){
 try
 {
     // Get Cart/wishlist information
-    $item_info_rs = $pdo->prepare("SELECT * FROM Shopping_Cart as w JOIN Product as p ON w.Product_ID=p.Product_ID  WHERE w.Customer_ID = :customer;");
-    $item_info_rs->execute(array(':customer'=>$customer_id));
-    $item_info = $item_info_rs->fetchAll(PDO::FETCH_ASSOC);
+//	$item_info_rs = $pdo->prepare("SELECt * FROM Shopping_Cart as w JOIN Product as p ON w.Product_ID=p.Product_ID  WHERE w.Customer_ID = :customer;");
+	$item_info_rs = $pdo->prepare("SELECT Product_ID, Quantity, Base_Price from Product, Shopping_Cart where Customer_ID = ?");	
+    	$item_info_rs->execute(array($customer_id));
+    	$item_info = $item_info_rs->fetchAll(PDO::FETCH_ASSOC);
 }
 catch(PDOexception $e)
 {
@@ -87,7 +88,7 @@ if(!empty($item_info)){
 </head>
 <body>
 <table border=2 cellspacing=2>
-    <thead>
+    i<thead>
     <th>Total Amount to be paid</th>
     <th>Total items in cart</th>
     </thead>
@@ -98,7 +99,7 @@ if(!empty($item_info)){
     </tr>
     </tbody>
 </table>
-<form method="post" action="">
+<form method="post" action="checkout.php">
     <h2>Billing Information</h2>
     <div>
     <label>Name</label>
