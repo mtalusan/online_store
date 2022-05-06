@@ -18,11 +18,11 @@ CREATE TABLE Wishlist (
 
 -- Define Order Info DB
 create table Order_Info(
-    Order_ID char(20) not null,
+    Order_ID INT not null AUTO_INCREMENT,
     Customer_ID char(10) not null,
     Processing_status char(15) default 'Processing',
     Seller_Notes char(100),
-    Tracking_Number int(10) auto_increment,
+    Tracking_Number int(10) AUTO_INCREMENT,
     Price decimal(6,2) not null,
     
     Primary Key(Order_ID,Customer_ID, Price),
@@ -35,7 +35,7 @@ create table Order_Info(
 
 -- Define Ordered Item DB
 CREATE TABLE Ordered_Item (
-	Order_ID INT,
+	Order_ID INT AUTO_INCREMENT,
 	Customer_ID INT,
 	Product_ID INT,
 	Quantity INT,
