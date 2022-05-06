@@ -25,7 +25,7 @@ if(!empty($_POST['checkout'])){
     if(!empty($_POST['submit'])){
         try
         {
-            $customer_id=$_POST['customer_id'];
+            $customer_id=$_POST['Customer_ID'];
            // echo "<pre>";print_r($_POST);die;
             $sql = "INSERT INTO Customer(Customer_ID, Phone_Number, Shipping_Address, Customer_Name, Card_Number) VALUES (?,?,?,?,?)";
             $stmt= $pdo->prepare($sql);
