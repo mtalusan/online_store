@@ -153,7 +153,7 @@
 	}
 	else
 	{
-		echo "Log in to buy this!";
+		echo "<a href=\"logon.php\">Log in</a> to buy this!";
 	}
 	echo "</body>";
 
