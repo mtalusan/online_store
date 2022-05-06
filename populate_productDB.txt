@@ -10,7 +10,7 @@ INSERT INTO Product (Product_Name, Stock, Details, Size, Color, Base_Price) Valu
 
 ('Supreme x CDG T-shirt', 25, 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XL', 'White', 129.99),
 
-('Supreme x CDG T-shirt', 25, 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XXL', 'White', 129.99'),
+('Supreme x CDG T-shirt', 25, 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'XXL', 'White', 129.99),
 
 ('Supreme x CDG T-shirt', 25, 'The long anticipated collaboration between Supreme and Commes Des Garcon has materialized as this thoughtfully designed tee', 'L', 'Black', 129.99),
 
