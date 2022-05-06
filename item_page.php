@@ -5,11 +5,11 @@
 	echo "<input type=\"submit\" value=\"Home\"/>";
 	echo "</form><br /><br />";
 
-	include("credentials.php");
+	include("secrets.php");
 
 	try
        	{
-		$dsn = "mysql:host=courses;dbname=z1714949";
+		$dsn = "mysql:host=courses;dbname=z1960742";
 		$pdo = new PDO($dsn, $username, $password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 	}
@@ -19,7 +19,7 @@
 	}
 
 	$item_ID = $_POST["Product_ID"];
-	@$C_ID = $_POST["Customer_ID"];
+	$C_ID = $_POST["Customer_ID"];
 
 	// Get item information
 	$item_info_rs = $pdo->prepare("SELECT * FROM Product WHERE Product_ID = :item;");
@@ -98,10 +98,11 @@
 	echo "</table>";
 
 	// Buy or Wishlist this item
-	if(@$C_ID)
+	if($C_ID)
 	{
 		// Wishlist this
 		echo "<form action=\"wishlist.php\" method=\"POST\">";
+		echo "<input type='hidden' name='Customer_ID' value = $C_ID >";
 		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
 		echo "<input type=\"submit\" value=\"Wishlist it!\"/>";
 		echo "</form><br />";
@@ -111,6 +112,9 @@
 		// Pass Product_Name, Customer_ID, and Product_ID
 		echo "<form action=\"add_to_cart_confirm.php\" method=\"POST\">";
 
+		echo "<input type='hidden' name='Customer_ID' value = $C_ID >";
+		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
+		
 		// Select size
 		if($item_info["Size"] != NULL)
 		{
@@ -136,24 +140,24 @@
 		}
 
 		// Enter quantity
-		echo "<input type=\"text\" name=\"Quantity\" value=\"Enter Quantity Here\"/><br />";
+		echo "<input type='number' name=\"Quantity\" value=\"Enter Quantity Here\"/><br />";
 
 		// Pass Customer_ID if known
-		echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . @$C_ID . "\"/>";
+	//	echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $C_ID . "\"/>";
 
 		// Pass Product_ID
-		echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
+	//	echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
 
 		// Pass Product_Name
 		echo "<input type=\"hidden\" name=\"Product_Name\" value=\"" . $item_info["Product_Name"] . "\"/>";
 
-		echo "<input type=\"submit\" value=\"Add to Cart\"/>";
+		echo "<input type='submit' value='Add to Cart'/>";
 
 		echo "</form>";
 	}
 	else
 	{
-		echo "<a href=\"logon.php\">Log in</a> to buy this!";
+		echo "<a href='logon.php'>Log in</a> to buy this!";
 	}
 	echo "</body>";
 

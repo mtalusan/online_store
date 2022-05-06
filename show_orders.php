@@ -8,19 +8,22 @@
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		
-		$rs = $pdo->query(select distinct Order_ID, Stock, Quantity from Product, Ordered_item);
+		$rs = $pdo->query("select distinct Order_ID, Stock, Quantity from Product, Ordered_item");
 		$rows = $rs->fetchALL(PDO::FETCH_ASSOC);
 		foreach($rows as $row)
 		{	
-			if($row['Quantity'] > $row['stock'])
+			if($row['Quantity'] > $row['Stock'])
 			{	
-				$dr = $pdo->prepare("delete from Ordered_Item, Order_Info where Order_ID = ?");
+				$dr = $pdo->prepare("delete from Ordered_Item where Order_ID = ?");
 				$dr->execute(array($row['Order_ID']));
-				echo "\n\nThe order(s) " . $row['Order_ID'] " was removed from the Order\n\n";
+				$dr = $pdo->prepare("delete from Order_Info where Order_ID = ?");
+				$dr->execute(array($row['Order_ID']));
+				echo "\n\nThe order(s) " . $row['Order_ID'] ;
+				echo " was removed from the Order\n\n";
 			}
 			else
 			{	
-			$row['stock'] - $row['Quantity'];
+				$row['Stock'] - $row['Quantity'];
 			}
 		}	
 
