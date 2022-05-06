@@ -42,9 +42,9 @@ INSERT INTO Product (Product_Name, Stock, Details, Size, Color, Base_Price) Valu
 
 INSERT INTO Product
 	(Product_Name, Stock, Details, Size, Base_Price) Values
-	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'S', 7.00),
-	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'M', 12.00),
-	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'L', 15.00);
+	(‘Dominos Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'S', 7.00),
+	(‘Dominos Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'M', 12.00),
+	(‘Dominos Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'L', 15.00);
 
 INSERT INTO Product
 	(Product_Name, Stock, Details, Base_Price) Values
