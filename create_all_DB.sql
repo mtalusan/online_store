@@ -25,8 +25,8 @@ create table Order_Info(
     Tracking_Number int(10) auto_increment,
     Price decimal(6,2) not null,
     
-    Primary Key(Order_ID,Customer_ID),
-    Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID), Customer(Customer_ID)
+    Primary Key(Order_ID,Customer_ID, Price),
+    Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID, Price), Customer(Customer_ID)
 );
 
 	Order_ID INT NOT NULL,
