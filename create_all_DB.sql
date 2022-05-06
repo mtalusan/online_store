@@ -18,14 +18,14 @@ CREATE TABLE Wishlist (
 
 -- Define Order Info DB
 create table Order_Info(
-    Order_ID INT not null AUTO_INCREMENT,
+    Order_ID INT not null,
     Customer_ID char(10) not null,
     Processing_status char(15) default 'Processing',
     Seller_Notes char(100),
     Tracking_Number int(10) AUTO_INCREMENT,
     Price decimal(6,2) not null,
     
-    Primary Key(Order_ID,Customer_ID, Price),
+    Primary Key(Tracking_Number),
     Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID, Price), Customer(Customer_ID)
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE Ordered_Item (
 	Quantity INT,
 	Price DECIMAL(6,2),
 
-	PRIMARY KEY (Product_ID, Order_ID, Customer_ID),
+	PRIMARY KEY (Order_ID),
 	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID), 
 	FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
