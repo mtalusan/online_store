@@ -14,7 +14,7 @@ if(!empty($_POST)){
    //echo "<pre>";print_r($_POST);die;
 
 if(!empty($_POST['checkout'])){
-    $customer_id=$_POST['customer_id'];
+    $customer_id=$_POST['Customer_ID'];
 }
 
     if(!empty($_POST['submit'])){
@@ -22,13 +22,13 @@ if(!empty($_POST['checkout'])){
         {
             $customer_id=$_POST['customer_id'];
            // echo "<pre>";print_r($_POST);die;
-            $sql = "INSERT INTO customer_info (customer_id,name,email,phone,address,city,state,zip) VALUES (?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO Customer(Customer_ID, Phone_Number, Shipping_Address, Customer_Name, Card_Number) VALUES (?,?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([$customer_id, $_POST['name'], $_POST['email'], $_POST['phone'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip']]);
+            $stmt->execute([$customer_id, $_POST['Phone_Number'], $_POST['Shipping_Address'], $_POST['Customer_Name'], $_POST['Card_Number']);
 
-            $sql = "INSERT INTO order_item (customer_id,product_id,quantity,total_amount) VALUES (?,?,?,?)";
+            $sql = "INSERT INTO Ordered_Item(Customer_ID, Product_ID, Quantity, Price) VALUES (?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([$customer_id, $_POST['product_id'], $_POST['quantity'], $_POST['total_amount']]);
+            $stmt->execute([$customer_id, $_POST['Product_ID'], $_POST['Quantity'], $_POST['Price']);
 
 
             $sql = "DELETE FROM cart WHERE Customer_ID = :customer_id ";
@@ -97,15 +97,11 @@ if(!empty($item_info)){
     <h2>Billing Information</h2>
     <div>
     <label>Name</label>
-    <input type="text" required name="name">
+    <input type="text" required name="Customer_Name">
     </div>
     <div>
     <label>Phone</label>
-    <input type="tel" maxlength="10" required name="phone">
-    </div>
-    <div>
-    <label>Email</label>
-    <input type="email" required name="email">
+    <input type="tel" maxlength="10" required name="Phone_Number">
     </div>
     <hr>
     <h2>Shipping Information</h2>
@@ -115,40 +111,31 @@ if(!empty($item_info)){
     </div>
 
     <div>
-    <label>City</label>
-    <input type="text" required name="city">
+    <label>Card Number</label>
+    <textarea name="Card_Number"></textarea>
     </div>
+
     <div>
-    <label>State</label>
-    <input type="text" required name="state">
-    </div>
-    <div>
-    <label>Zip Code</label>
-    <input type="text" required name="zip">
+
+        <input type="hidden" required name="Customer_ID" value="<?=$customer_id?>">
     </div>
 
 
     <div>
 
-        <input type="hidden" required name="customer_id" value="<?=$customer_id?>">
+        <input type="hidden" required name="Quantity" value="<?=$quantity?>">
     </div>
 
 
     <div>
 
-        <input type="hidden" required name="quantity" value="<?=$quantity?>">
+        <input type="hidden" required name="Price" value="<?=$price?>">
     </div>
 
 
     <div>
 
-        <input type="hidden" required name="total_amount" value="<?=$price?>">
-    </div>
-
-
-    <div>
-
-        <input type="hidden" required name="product_id" value="<?=$productIds?>">
+        <input type="hidden" required name="Product_ID" value="<?=$productIds?>">
     </div>
 
     <button type="submit" name="submit" value="submit">Submit</button>
