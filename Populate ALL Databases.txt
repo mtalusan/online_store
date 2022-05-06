@@ -1,3 +1,9 @@
+INSERT INTO Customer(Shipping_Address, Phone_Number, Customer_Name, Card_Number) values
+('4813 Ashton Park, Hoffman Estates, IL 60729', '1871384256', 'Joseph D. Landon', '8712352130'),
+('2187 Wayview Ave, Schaumburg, IL 60193', '8794653186', 'James R. Corden', '4563135413'),
+('4513 Highland Dr, Bloomington, IL 60428', '8754216512', 'Torey Tobias', '7565164953'),
+('7845 Golf Rd, HOffman Estates, IL 60429', '7895246315', 'Jimmy Mcmallon', '7812643852'),
+('9513 Asbury Dr West Chicago, IL 60185', '7635187366', 'Kenny Smith', '1394528760');
 
 INSERT INTO Product (Product_Name, Stock, Details, Size, Color, Base_Price) Values 
 
@@ -62,13 +68,6 @@ INSERT INTO Product
 	('One Weekend with a Fatherly Figure Who Will Cut Your Grass and Grill', 16, 'Missed out on an essential part of childhood? Dad can not grill to save his life? We have the solution. (Willingness to engage in firm, comforting embraces may vary)', 'XL', 'Black' ,120),
 	('EVGA Nvidia RTX 3090 GPU 12GB GDDR6X', 7000, 'AVAILABLE WHILE SUPPLIES LAST. UNBEATABLE PRICE  AT $1 FOR EACH R THAT GETS TXed', 'M', 'Black', 3089.99);
 
-
-INSERT INTO Customer(Shipping_Address, Phone_Number, Customer_Name, Card_Number) values
-('4813 Ashton Park, Hoffman Estates, IL 60729', '1871384256', 'Joseph D. Landon', '8712352130'),
-('2187 Wayview Ave, Schaumburg, IL 60193', '8794653186', 'James R. Corden', '4563135413'),
-('4513 Highland Dr, Bloomington, IL 60428', '8754216512', 'Torey Tobias', '7565164953'),
-('7845 Golf Rd, HOffman Estates, IL 60429', '7895246315', 'Jimmy Mcmallon', '7812643852'),
-('9513 Asbury Dr West Chicago, IL 60185', '7635187366', 'Kenny Smith', '1394528760');
 
 INSERT INTO Ordered_Item(Customer_ID, Product_ID, Quantity, Price) values
 (1, 1, 2, 129.99),
