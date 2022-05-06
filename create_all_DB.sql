@@ -26,7 +26,7 @@ create table Order_Info(
     Price decimal(6,2) not null,
     
     Primary Key(Tracking_Number),
-    Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID, Price), Customer(Customer_ID)
+    Foreign Key(Order_ID,Customer_ID, Price) References Ordered_Item(Order_ID, Price), Customer(Customer_ID)
 );
 
 -- Define Ordered Item DB
