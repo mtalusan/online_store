@@ -29,10 +29,6 @@ create table Order_Info(
     Foreign Key(Order_ID,Customer_ID) References Ordered_Item(Order_ID, Price), Customer(Customer_ID)
 );
 
-	Order_ID INT NOT NULL,
-	Customer_ID INT,
-	Tracking_Number
-
 -- Define Ordered Item DB
 CREATE TABLE Ordered_Item (
 	Order_ID INT AUTO_INCREMENT,
@@ -48,10 +44,9 @@ CREATE TABLE Ordered_Item (
 
 -- Define Cart DB
 CREATE TABLE Shopping_Cart (
-	cart_id INT NOT NULL,
 	Product_ID INT,
 	Customer_ID INT,
-	Quantity,
+	Quantity INT,
 
 	PRIMARY KEY (cart_id),
 	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID),
