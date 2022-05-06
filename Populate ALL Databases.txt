@@ -69,14 +69,14 @@ INSERT INTO Product
 	('EVGA Nvidia RTX 3090 GPU 12GB GDDR6X', 7000, 'AVAILABLE WHILE SUPPLIES LAST. UNBEATABLE PRICE  AT $1 FOR EACH R THAT GETS TXed', 'M', 'Black', 3089.99);
 
 
-INSERT INTO Ordered_Item(Customer_ID, Product_ID, Quantity, Price) values
-(1, 1, 2, 129.99),
-(2, 1, 1, 129.99),
-(3, 9, 1, 449.99),
-(4, 1, 3, 129.99),
-(5, 1, 1, 129.99),
-(1, 2, 2, 129.99),
-(2, 3, 1, 129.99),
-(3, 5, 1, 129.99),
-(4, 10, 3, 449.99),
-(5, 15, 1, 450.99);
+INSERT INTO Ordered_Item(Quantity, Price) values
+(2, 129.99),
+(1, 129.99),
+(1, 449.99),
+(3, 129.99),
+(1, 129.99),
+(2, 129.99),
+(1, 129.99),
+(1, 129.99),
+(3, 449.99),
+(1, 450.99);
