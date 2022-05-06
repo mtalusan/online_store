@@ -41,8 +41,9 @@ CREATE TABLE Ordered_Item (
 	Quantity INT,
 	Price DECIMAL(6,2),
 
-	PRIMARY KEY (Product_ID, Order_ID),
-	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+	PRIMARY KEY (Product_ID, Order_ID, Customer_ID),
+	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID), 
+	FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
 -- Define Cart DB
