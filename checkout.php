@@ -1,6 +1,11 @@
 <?php
 
-$customer_id='';
+	echo "<form action=\"index.php\" method=\"POST\">";
+	echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $_POST["Customer_ID"] . "\"/>";
+	echo "<input type=\"submit\" value=\"Home\"/>";
+	echo "</form><br /><br />";
+
+$customer_id= $_POST["Customer_ID"];
 
 include("credentials.php");
 
