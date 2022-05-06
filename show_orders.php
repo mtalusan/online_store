@@ -8,7 +8,7 @@
 		$pdo = new PDO($dsn,$username,$password);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		
-		$rs = $pdo->query(select distinct Order_ID, Stock, Quantity from Product, Ordered_item);
+		$rs = $pdo->query("select distinct Order_ID, Stock, Quantity from Product, Ordered_item");
 		$rows = $rs->fetchALL(PDO::FETCH_ASSOC);
 		foreach($rows as $row)
 		{	
