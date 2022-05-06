@@ -58,7 +58,7 @@ CREATE TABLE Shopping_Cart (
 );
 
 -- Define Customer DB
-CREATE TABLE Ordered_Item (
+CREATE TABLE Customer (
 	Customer_ID INT AUTO_INCREMENT,
 	Customer_Name CHAR(255),
 	Phone_Number INT,
