@@ -36,7 +36,7 @@ if(!empty($_POST['checkout'])){
             $stmt->execute([$customer_id, $_POST['Product_ID'], $_POST['Quantity'], $_POST['Price']);
 
 
-            $sql = "DELETE FROM cart WHERE Customer_ID = :customer_id ";
+            $sql = "DELETE FROM Shopping_Cart WHERE Customer_ID = :customer_id ";
             $stmt= $pdo->prepare($sql);
             $stmt->execute([':customer_id'=>$customer_id]);
 
@@ -54,7 +54,7 @@ if(!empty($_POST['checkout'])){
 try
 {
     // Get Cart/wishlist information
-    $item_info_rs = $pdo->prepare("SELECT * FROM cart as w JOIN Product as p ON w.Product_ID=p.Product_ID  WHERE w.Customer_ID = :customer;");
+    $item_info_rs = $pdo->prepare("SELECT * FROM Shopping_Cart as w JOIN Product as p ON w.Product_ID=p.Product_ID  WHERE w.Customer_ID = :customer;");
     $item_info_rs->execute(array(':customer'=>$customer_id));
     $item_info = $item_info_rs->fetchAll(PDO::FETCH_ASSOC);
 }
