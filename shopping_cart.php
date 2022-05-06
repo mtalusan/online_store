@@ -1,8 +1,8 @@
 <?php
 
 
-$customer_id='';
-$product_id='';
+$customer_id = $_POST["Customer_ID"];
+$product_id = $_POST["Product_ID"];
 
 include("credentials.php");
 
@@ -18,9 +18,8 @@ if(!empty($_POST)){
 if($_POST['submit'] == 'add_quantity'){
     try
     {
-    $quantity=($_POST['quantity'] + 1);
-    $cart_id=$_POST['cart_id'];
-    $sql = "UPDATE cart SET quantity = :quantity WHERE cart_id = :cart_id ";
+    $quantity=($_POST['Quantity'] + 1);
+    $sql = "UPDATE Shopping_Cart SET quantity = :quantity WHERE cart_id = :cart_id ";
     $stmt= $pdo->prepare($sql);
     $stmt->execute([':quantity'=>$quantity,':cart_id'=>$cart_id]);
     }
