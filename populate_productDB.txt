@@ -28,22 +28,22 @@ INSERT INTO Product (Product_Name, Stock, Details, Size, Color, Base_Price) Valu
 
 ('Biplane', 3, 'Defy Sir Issac Newton.', 'XXL', 'Black', 449.99),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'XS', 'White', 450.66),
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'XS', 'White', 450.66),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'S', 'White', 450.66),
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'S', 'White', 450.66),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'M', 'White', 450.66),
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'M', 'White', 450.66),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'L', 'White', 450.66),
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'L', 'White', 450.66),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'XL', 'White', 450.66),
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'XL', 'White', 450.66),
 
-('Baseball Shirt', '1000', 'Fashionable and Simple', 'XXL', 'White', 450.66);
+('Baseball Shirt', 1000, 'Fashionable and Simple', 'XXL', 'White', 450.66);
 
 INSERT INTO Product
 	(Product_Name, Stock, Details, Size, Base_Price) Values
 	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'S', 7.00),
-	(‘Domino’s Pizza', '600', 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'M', 12.00),
+	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'M', 12.00),
 	(‘Domino’s Pizza', 600, 'Why bother with the fuss of ordering? Let us order your takeout tonight!', 'L', 15.00);
 
 INSERT INTO Product
