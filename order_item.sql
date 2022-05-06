@@ -28,35 +28,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `order_item`
 --
 
-CREATE TABLE `order_item` (
-  `order_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `product_id` varchar(200) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `order_item`
---
-ALTER TABLE `order_item`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `order_item`
---
-ALTER TABLE `order_item`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE Ordered_Item (
+  `Order_ID` int(11) NOT NULL auto_increment,
+  `Customer_ID` int(11) NOT NULL,
+  `Product_ID` varchar(200) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Price` decimal(6,2) NOT NULL,
+  
+  Primary Key(Customer_ID, Product_ID),
+  Foreign Key(Customer_ID, Product_ID) References  Customer(Customer_ID), Product(Product_ID)
+  
+  );
+  
