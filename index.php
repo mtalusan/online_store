@@ -4,7 +4,8 @@
 	</head>
 
 	<body>
-		<p><b><h1>TA'S, IF YOU SEE THIS I'M QUICKLY TESTING THE GROUP PROJECT, PLZ COMEBACK LATER OR CONTACT ME DIRECTLY TO LET ME KNOW YOU NEED TO SEE ASSIGNMENT 9 AND I'LL CHANGE IT BACK</h1></b></p><br />
+		<p><b><u><h2>Pizza Hut</u></b></h2>
+		<h4><i>No One Out-Pizzas The Hut</i></h4></p>
 	
 	<?php
 		include("credentials.php");
@@ -35,7 +36,19 @@
 		else
 		{
 			// Greeting
-			echo "<p style=\"text-align:right;\">Hello,<b> " . @$C_ID . "</b>! <a href =\"logon.php\">Not you?</a></p>";
+			echo "<p style=\"text-align:right;\">Hello,<b> " . @$C_ID . "</b>! <a href =\"logon.php\">Not you?</a><br />";
+
+			// Wishlist link
+			echo "<form action=\"wishlist.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $_POST["Customer_ID"] . "\"/>";
+			echo "<input type=\"submit\" value=\"View Wishlist\"/>";
+			echo "</form>";
+
+			// Shopping Cart link
+			echo "<form action=\"shopping_cart.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"Customer_ID\" value=\"" . $_POST["Customer_ID"] . "\"/>";
+			echo "<input type=\"submit\" value=\"View Shopping Cart\"/>";
+			echo "</form></p>";
 		}
 
 		// Get inventory from DB
