@@ -11,9 +11,9 @@ DROP TABLE Product;
 CREATE TABLE Customer (
 	Customer_ID CHAR(255),
 	Customer_Name CHAR(255),
-	Phone_Number INT,
+	Phone_Number BIGINT,
 	Shipping_Address CHAR(255),
-	Card_Number INT,
+	Card_Number BIGINT,
 
 	PRIMARY KEY (Customer_ID)
 );
@@ -49,7 +49,7 @@ CREATE TABLE Wishlist (
 	Product_ID INT,
 	Customer_ID CHAR(255),
 	
-	PRIMARY KEY (Customer_ID),
+	PRIMARY KEY (Customer_ID, Product_ID),
 	FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
 	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
 );
@@ -74,7 +74,7 @@ CREATE TABLE Shopping_Cart (
 	Customer_ID CHAR(255),
 	Quantity INT,
 
-	PRIMARY KEY (Customer_ID),
+	PRIMARY KEY (Product_ID, Customer_ID),
 	FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID),
 	FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
