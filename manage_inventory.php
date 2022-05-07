@@ -80,7 +80,9 @@
 		echo "<input type=\"submit\" value=\"Add to Inventory\" />";
 		echo "</form><br /><br />";
 
-		// Print info about product and a separate table to change item attributes
+
+		// Update an item
+		// Print info about product before change
 		foreach($inventory as $item_info)
 		{
 			echo "<table border=2 cellspacing=2>";
@@ -123,14 +125,17 @@
 
 			// Print empty data cells that will allow for employee to change 
 			// attributes about the product
-			echo "<form action=\"edit_item.php\" method=\"POST\">";
+
 			echo "<table border=1 cellspacing=1>";
 
 			echo "<tr><td><b>Product ID</b></td>";
-			echo "<td><input type=\"text\" name=\"Product_ID\" value=\"". $item_info["Product_ID"] . "\"/></td></tr>";
+			echo "<td>" . $item_info["Product_ID"] . "</td></tr>";
+
+			echo "<form action=\"edit_item.php\" method=\"POST\">";
+			echo "<input type=\"hidden\" name=\"Product_ID\" value=\"" . $item_info["Product_ID"] . "\"/>";
 
 			echo "<tr><td><b>Product Name</b></td>";
-			echo "<td><input type=\"text\" name=\"Product_Name\" value=\"" .$item_info["Product_Name"] . "\"/></td></tr>";
+			echo "<td><input type=\"text\" name=\"Product_Name\" value=\"" . $item_info["Product_Name"] . "\"/></td></tr>";
 
 			echo "<tr><td><b>Details</b></td>";
 			echo "<td><input type=\"text\" name=\"Details\" value=\"" . $item_info["Details"] . "\"/></td></tr>";
