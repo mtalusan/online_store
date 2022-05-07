@@ -7,7 +7,7 @@
 	$item_details = $_POST["Details"];
 	@$item_color = @$_POST["Color"];
 	@$item_size = @$_POST["Size"];
-	$item_price = $_POST["Price"];
+	$item_price = $_POST["Base_Price"];
 	$item_stock = $_POST["Stock"];
 
 	include("credentials.php");
@@ -25,21 +25,23 @@
 
 	// Update DB entry
 	$update_rs = $pdo->prepare("UPDATE Product SET 
-		Product_ID = :Product_ID,
 		Product_Name = :Product_Name,
 		Details = :Details,
 		Color = :Color,
 		Size = :Size,
 		Base_Price = :Base_Price,
-		Stock = :Stock;");
+		Stock = :Stock
 
-	$update_rs->execute(array(":Product_ID" => $item_ID,
+		WHERE Product_ID = :Product_ID;");
+
+	$update_rs->execute(array(
 		":Product_Name" => $item_name,
 		":Details" => $item_details,
 		":Color" => @$item_color,
 		":Size" => @$item_size,
 		":Base_Price" => $item_price,
-		":Stock" => $item_stock));
+		":Stock" => $item_stock,
+		":Product_ID" => $item_ID));
 
 
 	echo "The product has been updated with the following data: <br />";
